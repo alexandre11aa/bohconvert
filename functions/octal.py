@@ -1,8 +1,10 @@
 def decimal_para_octal(decimal, precisao=8):
-    parte_inteira = oct(int(decimal))[2:]  # Converter parte inteira para octal
-    parte_fracionaria = ''
 
+    # Converter parte inteira para octal
+    parte_inteira = oct(int(decimal))[2:]
+    
     # Converter parte fracionária para octal
+    parte_fracionaria = ''
     if decimal % 1 != 0:
         parte_fracionaria = '.'
         fracionaria = decimal - int(decimal)
@@ -12,8 +14,3 @@ def decimal_para_octal(decimal, precisao=8):
             fracionaria -= int(fracionaria)
 
     return parte_inteira + parte_fracionaria
-
-# Exemplo de uso
-decimal_fracionario = 428.625
-octal = decimal_para_octal(decimal_fracionario)
-print(f'O número decimal fracionário {decimal_fracionario} em octal é: {octal}')

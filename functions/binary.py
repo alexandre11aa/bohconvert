@@ -1,8 +1,10 @@
 def decimal_para_binario(decimal, precisao=8):
-    parte_inteira = bin(int(decimal))[2:]  # Converter parte inteira para binário
-    parte_fracionaria = ''
+
+    # Converter parte inteira para binário
+    parte_inteira = bin(int(decimal))[2:]
 
     # Converter parte fracionária para binário
+    parte_fracionaria = ''
     if decimal % 1 != 0:
         parte_fracionaria = '.'
         fracionaria = decimal - int(decimal)
@@ -12,8 +14,3 @@ def decimal_para_binario(decimal, precisao=8):
             fracionaria -= int(fracionaria)
 
     return parte_inteira + parte_fracionaria
-
-# Exemplo de uso
-decimal_fracionario = 428.625
-binario = decimal_para_binario(decimal_fracionario)
-print(f'O número decimal fracionário {decimal_fracionario} em binário é: {binario}')
