@@ -12,7 +12,8 @@
 
         <div class="card mt-3">
             <div class="card-body">
-                <form id="conversao-form">
+                <form id="conversao-form" method="post" action="{% url 'conversor' %}">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6">
                             <label for="numero-decimal">Número Decimal:</label>
@@ -30,7 +31,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Converter</button>
-                </form>
+                </form>               
 
                 <div id="resultados" class="mt-3">
                     <div class="row">
