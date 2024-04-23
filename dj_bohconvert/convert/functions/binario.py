@@ -1,5 +1,8 @@
 def decimal_para_binario(decimal, precisao=8):
 
+    # Converter vírgula para ponto
+    decimal = float(decimal.replace(",", "."))
+
     # Converter parte inteira para binário
     parte_inteira = bin(int(decimal))[2:]
 

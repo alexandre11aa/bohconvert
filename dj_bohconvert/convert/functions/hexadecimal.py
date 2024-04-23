@@ -1,5 +1,8 @@
 def decimal_para_hexadecimal(decimal, precisao=8):
 
+    # Converter vírgula para ponto
+    decimal = float(decimal.replace(",", "."))
+
     # Converter parte inteira para hexadecimal
     parte_inteira = hex(int(decimal))[2:]
 

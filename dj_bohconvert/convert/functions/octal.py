@@ -1,5 +1,8 @@
 def decimal_para_octal(decimal, precisao=8):
 
+    # Converter vírgula para ponto
+    decimal = float(decimal.replace(",", "."))
+
     # Converter parte inteira para octal
     parte_inteira = oct(int(decimal))[2:]
     
