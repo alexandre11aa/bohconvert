@@ -55,3 +55,31 @@ Já para verificar se a aplicação instalada está rodando da forma correta, ch
 ```shell
 kubectl logs dj-bohconvert-test -c dj-bohconvert
 ```
+
+### Passo 5 - Abrindo aplicação no navegador
+
+Para abrir a aplicação que está rodando no pod no navegador do computador, basta criar um serviço do tipo NodePort para expor a porta 8000 da aplicação para o host do Kubernetes, executando o seguinte comando:
+
+```shell
+$ kubectl expose pod dj-bohconvert-test --type=NodePort --port=8000
+```
+
+Isso criará um serviço que expõe a porta 8000 do seu pod para um porta aleatória no host do Kubernetes. Para verificar a porta atribuída, executa-se o comando:
+
+```shell
+$ kubectl get svc dj-bohconvert-test -o=jsonpath='{.spec.ports[0].nodePort}'
+```
+
+Após isso, basta executar o seguinte link no navegador: ***http://<ip_da_maquina_virtual_master>:<porta_aleatoria_gerada>/***
+
+### OBS - Comandos para uso geral no kubernetes
+
+```shell
+$ kubectl describe pod <nome_do_pod> # Descreve detalhes sobre um pod específico
+$ kubectl exec -it <nome_do_pod> -c <nome_do_container> -- /bin/sh -c "kill 1" # Reinicia um container específico de um pod
+$ kubectl exec -it <nome_do_pod> -- /bin/sh # Abre um shell interativo dentro de um pod específico
+$ kubectl delete pod <nome_do_pod> # Exclui um pod forçando seu reinício
+$ kubectl delete pod <nome_do_pod> --grace-period=0 --force # Exclui um pod permanentemente
+$ kubectl delete deployment <nome_do_deployment> # Exclui um deployment específico
+$ kubectl delete service <nome_do_service> # Exclui um serviço específico do cluster
+```
