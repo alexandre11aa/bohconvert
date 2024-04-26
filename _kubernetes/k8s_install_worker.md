@@ -1,3 +1,4 @@
+```shell
 sudo swapoff -a
 
 export DEBIAN_FRONTEND=noninteractive
@@ -73,3 +74,4 @@ sudo swapoff -a
 sudo kubeadm join --token <DADO PELO MASTER>
 --discovery-token-ca-cert-hash
 <DADO PELO MASTER>
+```
