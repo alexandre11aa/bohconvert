@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dj-bohconvert-test
+  labels:
+    app: dj-bohconvert
+spec:
+  containers:
+    - name: dj-bohconvert
+      image: alexandre11aa/bohc:latest
+      ports:
+        - containerPort: 8000
+      env:
+        - name: SECRET_KEY
+          value: "cc90682b9f1e12d7a9d23c63d0b4e9e01dbcd55ba9ddda2b"
+        - name: DEBUG
+          value: "1"
+        - name: ALLOWED_HOSTS
+          value: "127.0.0.1,localhost"
+        - name: DB_ENGINE
+          value: "django.db.backends.postgresql"
+        - name: POSTGRES_DB
+          value: "bohconvert_db"
+        - name: POSTGRES_USER
+          value: "bohconvert_db_user"
+        - name: POSTGRES_PASSWORD
+          value: "bohconvert_db_password"
+        - name: POSTGRES_HOST
+          value: "127.0.0.1"  # Use localhost IP for communication within the pod
+        - name: POSTGRES_PORT
+          value: "5432"
+      volumeMounts:
+        - name: data
+          mountPath: /var/lib/postgresql/data
+    - name: psql
+      image: postgres:13-alpine
+      env:
+        - name: POSTGRES_DB
+          value: "bohconvert_db"
+        - name: POSTGRES_USER
+          value: "bohconvert_db_user"
+        - name: POSTGRES_PASSWORD
+          value: "bohconvert_db_password"
+      volumeMounts:
+        - name: data
+          mountPath: /var/lib/postgresql/data
+  volumes:
+    - name: data
+      emptyDir: {}
