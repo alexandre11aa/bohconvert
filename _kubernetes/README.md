@@ -4,7 +4,7 @@ Para criar um cluster em kubernetes da presente aplicação, basta seguir os pas
 
 ### Passo 1 - Criação das máquinas virtuais
 
-Baixe o VirtualBox e crie duas máquinas virtuais **(use as configurações presentes no *vm_config.txt* como guia)**, uma para o nó *master*, e outra para o nó *worker*. Com as máquinas virtuais criadas abra dois *shells*, sendo um para cada nó, e execute o código:
+Baixe o VirtualBox e crie duas máquinas virtuais **(use as configurações presentes no *vm_config.txt* como guia)**, uma para o nó *master*, e outra para o nó *worker*. Após a criação delas, abra dois *shells*, sendo um para cada nó, e execute o comando:
 
 ```shell
 $ ssh <usuario_da_maquina_virtual>@<ip_da_maquina_virtual>
@@ -18,7 +18,7 @@ $ hostname -I
 
 ### Passo 2 - Instalação do kubernetes nas máquinas virtuais
 
-Com o *ssh* ativo para os dois nós, basta instalar as configurações do ambiente kubernetes. A instalação do ambiente do nó master pode ser feita com os comandos presentes no *k8s_install_master.md* presente neste repositório. Já a instalação do ambiente do nó worker pode ser feita com os comandos presentes no *k8s_install_worker.md*, também presente neste repositório. Para verificar se os nós estão devidamente instalados e em perfeita execução, basta ir no *ssh* do nó master, e executar o seguinte comando:
+Com o *ssh* ativo para os dois nós, instala-se e configura-se o ambiente kubernetes. A instalação do nó master pode ser feita com os comandos presentes no *k8s_install_master.md*. Já a instalação do nó worker pode ser feita com os comandos presentes no *k8s_install_worker.md*. Os dois arquivos citados para a instalação dos nós estão contidos no atual repositório. Para verificar se os nós estão devidamente instalados e em perfeita execução, basta ir no *ssh* do nó master, e executar o seguinte comando:
 
 ```shell
 $ kubectl get nodes
@@ -28,7 +28,7 @@ Quando os dois nós criados estiverem com o status *Ready*, então tudo estará 
 
 ### Passo 3 - Configuração do arquivo .yaml no kubernetes
 
-Com os ambientes dos nós devidamente configurados e em funcionamento, para criar os pods e instalar a aplicação se faz necessária a criação de um arquivo *.yml*. Para isso basta ir no ambiente *ssh* do nó master e executar o seguinte comando:
+Com os ambientes dos nós devidamente configurados e em funcionamento, para criar os pods e instalar a aplicação se faz necessária um arquivo *.yml*. Para isso basta ir no ambiente *ssh* do nó master e executar o seguinte comando:
 
 ```shell
 $ nano mypod.yaml
