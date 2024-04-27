@@ -4,7 +4,7 @@
 
 ### Docker
 
-Para criar montar a imagem e criar os containers da presente aplicação em Docker, basta copiar o presente repositório, entrar na pasta onde está presente o arquivo *docker-compose.yml* e executar o seguinte comando:
+Para montar a imagem e criar os containers em Docker da presente aplicação, basta clonar o presente repositório, entrar no diretório onde está o arquivo *docker-compose.yml* e executar o seguinte comando:
 
 ```shell
 $ docker-compose up --build
