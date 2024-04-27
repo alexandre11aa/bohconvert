@@ -1,6 +1,6 @@
 # BOHConvert
 
-Se tratando da criação dos containers da aplicação sem a necessidade de copiar todo o repositóio, é possível baixar a imagem desta diretamente do Docker Hub. Após isso basta os subir os containers no Docker a partir da imagem. Para isso inicia-se o *shell* no diretório do *docker-compose.yml*, e executar os comandos abaixo:
+Se tratando da criação dos containers da aplicação sem a necessidade de copiar todo o repositóio, baixa-se a imagem desta diretamente do Docker Hub. Após isso sobe-se os containers no Docker a partir da imagem baixada. Para isso, inicia-se o *shell* no diretório do *docker-compose.yml*, e executa-se os comandos abaixo:
 
 ```shell
 $ docker login
